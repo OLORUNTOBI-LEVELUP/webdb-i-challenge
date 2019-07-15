@@ -23,9 +23,9 @@ router.get("/:id", validateId, async (req, res, next) => {
 
 router.post("/", validateBody, async (req, res, next) => {
   try {
-    const createdAccount = await Accounts.insert(req.newAccount);
+    const newAccount = await Accounts.insert(req.newAccount);
 
-    res.status(201).json(createdAccount);
+    res.status(201).json(newAccount);
   } catch (err) {
     next(err);
   }
